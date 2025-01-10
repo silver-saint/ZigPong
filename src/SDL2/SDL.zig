@@ -26,16 +26,16 @@
 //  specify the subsystems which you will be using in your application.
 //
 // @{
-const SDL_INIT_TIMER: u32 = 0x00000001;
-const SDL_INIT_AUDIO: u32 = 0x00000010;
-const SDL_INIT_VIDEO: u32 = 0x00000020;
-const SDL_INIT_HAPTIC: u32 = 0x00001000;
-const SDL_INIT_JOYSTICK: u32 = 0x00000200;
-const SDL_INIT_GAMECONTROLLER: u32 = 0x00002000;
-const SDL_INIT_EVENTS: u32 = 0x00004000;
-const SDL_INIT_SENSOR: u32 = 0x00008000;
-const SDL_INIT_NOPARACHUTE: u32 = 0x00100000;
-const SDL_INIT_EVERYTHING: u32 = (SDL_INIT_TIMER ^ SDL_INIT_AUDIO ^ SDL_INIT_VIDEO ^ SDL_INIT_EVENTS ^ SDL_INIT_JOYSTICK ^ SDL_INIT_HAPTIC ^ SDL_INIT_GAMECONTROLLER ^ SDL_INIT_SENSOR);
+pub const SDL_INIT_TIMER: u32 = 0x00000001;
+pub const SDL_INIT_AUDIO: u32 = 0x00000010;
+pub const SDL_INIT_VIDEO: u32 = 0x00000020;
+pub const SDL_INIT_HAPTIC: u32 = 0x00001000;
+pub const SDL_INIT_JOYSTICK: u32 = 0x00000200;
+pub const SDL_INIT_GAMECONTROLLER: u32 = 0x00002000;
+pub const SDL_INIT_EVENTS: u32 = 0x00004000;
+pub const SDL_INIT_SENSOR: u32 = 0x00008000;
+pub const SDL_INIT_NOPARACHUTE: u32 = 0x00100000;
+pub const SDL_INIT_EVERYTHING: u32 = (SDL_INIT_TIMER ^ SDL_INIT_AUDIO ^ SDL_INIT_VIDEO ^ SDL_INIT_EVENTS ^ SDL_INIT_JOYSTICK ^ SDL_INIT_HAPTIC ^ SDL_INIT_GAMECONTROLLER ^ SDL_INIT_SENSOR);
 
 // {@}
 
@@ -86,7 +86,7 @@ const SDL_INIT_EVERYTHING: u32 = (SDL_INIT_TIMER ^ SDL_INIT_AUDIO ^ SDL_INIT_VID
 /// \sa SDL_SetMainReady
 /// \sa SDL_WasInit
 ///
-extern fn SDL_Init(flags: u32) i32;
+pub extern fn SDL_Init(flags: u32) i32;
 ////
 /// Compatibility function to initialize the SDL library.
 ///
@@ -103,7 +103,7 @@ extern fn SDL_Init(flags: u32) i32;
 /// SDL_QuitSubSystem
 ////
 
-extern fn SDL_InitSubSystem(flags: u32) i32;
+pub extern fn SDL_InitSubSystem(flags: u32) i32;
 ///
 ///* Shut down specific SDL subsystems.
 ///*
@@ -124,7 +124,7 @@ extern fn SDL_InitSubSystem(flags: u32) i32;
 ///*  SDL_InitSubSystem
 ///* SDL_Quit
 ///*/
-extern fn SDL_QuitSubSystem(flags: u32) void;
+pub extern fn SDL_QuitSubSystem(flags: u32) void;
 ///* Get a mask of the specified subsystems which are currently initialized.
 ///*
 ///* flags any of the flags used by SDL_Init(); see SDL_Init for details.
@@ -138,7 +138,7 @@ extern fn SDL_QuitSubSystem(flags: u32) void;
 ///*  SDL_Init
 ///*  SDL_InitSubSystem
 ///*/
-extern fn SDL_WasInit(flags: u32) u32;
+pub extern fn SDL_WasInit(flags: u32) u32;
 ///
 ///* Clean up all initialized subsystems.
 ///*
@@ -161,4 +161,4 @@ extern fn SDL_WasInit(flags: u32) u32;
 ///*  SDL_Init
 ///* SDL_QuitSubSystem
 ///*/
-extern fn SDL_Quit(void) void;
+pub extern fn SDL_Quit(void) void;
