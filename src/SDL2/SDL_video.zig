@@ -148,162 +148,140 @@ pub const SDL_DISPLAYEVENT_CONNECTED: c_int = 2;
 pub const SDL_DISPLAYEVENT_DISCONNECTED: c_int = 3;
 
  ///*  \brief Display orientation
-typedef enum
-{
-    SDL_ORIENTATION_UNKNOWN,            /**< The display orientation can't be determined */
-    SDL_ORIENTATION_LANDSCAPE,          /**< The display is in landscape mode, with the right side up, relative to portrait mode */
-    SDL_ORIENTATION_LANDSCAPE_FLIPPED,  /**< The display is in landscape mode, with the left side up, relative to portrait mode */
-    SDL_ORIENTATION_PORTRAIT,           /**< The display is in portrait mode */
-    SDL_ORIENTATION_PORTRAIT_FLIPPED    /**< The display is in portrait mode, upside down */
-} SDL_DisplayOrientation;
+pub const SDL_DisplayOrientation = c_uint;
+pub const SDL_ORIENTATION_UNKNOWN: c_int = 0;
+pub const SDL_ORIENTATION_LANDSCAPE: c_int = 1;
+pub const SDL_ORIENTATION_LANDSCAPE_FLIPPED: c_int = 2;
+pub const SDL_ORIENTATION_PORTRAIT: c_int = 3;
+pub const SDL_ORIENTATION_PORTRAIT_FLIPPED: c_int = 4;
 
-/**
- *  \brief Window flash operation
- */
-typedef enum
-{
-    SDL_FLASH_CANCEL,                   /**< Cancel any window flash state */
-    SDL_FLASH_BRIEFLY,                  /**< Flash the window briefly to get attention */
-    SDL_FLASH_UNTIL_FOCUSED             /**< Flash the window until it gets focus */
-} SDL_FlashOperation;
+ ///*  \brief Window flash operation
 
-/**
- *  \brief An opaque handle to an OpenGL context.
- */
-typedef void *SDL_GLContext;
+pub const SDL_FlashOperation = c_uint;
+pub const SDL_FLASH_CANCEL: c_int = 0;
+pub const SDL_FLASH_BRIEFLY: c_int = 1;
+pub const SDL_FLASH_UNTIL_FOCUSED: c_int = 2;
 
-/**
- *  \brief OpenGL configuration attributes
- */
-typedef enum
-{
-    SDL_GL_RED_SIZE,
-    SDL_GL_GREEN_SIZE,
-    SDL_GL_BLUE_SIZE,
-    SDL_GL_ALPHA_SIZE,
-    SDL_GL_BUFFER_SIZE,
-    SDL_GL_DOUBLEBUFFER,
-    SDL_GL_DEPTH_SIZE,
-    SDL_GL_STENCIL_SIZE,
-    SDL_GL_ACCUM_RED_SIZE,
-    SDL_GL_ACCUM_GREEN_SIZE,
-    SDL_GL_ACCUM_BLUE_SIZE,
-    SDL_GL_ACCUM_ALPHA_SIZE,
-    SDL_GL_STEREO,
-    SDL_GL_MULTISAMPLEBUFFERS,
-    SDL_GL_MULTISAMPLESAMPLES,
-    SDL_GL_ACCELERATED_VISUAL,
-    SDL_GL_RETAINED_BACKING,
-    SDL_GL_CONTEXT_MAJOR_VERSION,
-    SDL_GL_CONTEXT_MINOR_VERSION,
-    SDL_GL_CONTEXT_EGL,
-    SDL_GL_CONTEXT_FLAGS,
-    SDL_GL_CONTEXT_PROFILE_MASK,
-    SDL_GL_SHARE_WITH_CURRENT_CONTEXT,
-    SDL_GL_FRAMEBUFFER_SRGB_CAPABLE,
-    SDL_GL_CONTEXT_RELEASE_BEHAVIOR,
-    SDL_GL_CONTEXT_RESET_NOTIFICATION,
-    SDL_GL_CONTEXT_NO_ERROR,
-    SDL_GL_FLOATBUFFERS
-} SDL_GLattr;
+///  \brief An opaque handle to an OpenGL context.
 
-typedef enum
-{
-    SDL_GL_CONTEXT_PROFILE_CORE           = 0x0001,
-    SDL_GL_CONTEXT_PROFILE_COMPATIBILITY  = 0x0002,
-    SDL_GL_CONTEXT_PROFILE_ES             = 0x0004 /**< GLX_CONTEXT_ES2_PROFILE_BIT_EXT */
-} SDL_GLprofile;
+pub const SDL_GLContext = ?*anyopaque;
 
-typedef enum
-{
-    SDL_GL_CONTEXT_DEBUG_FLAG              = 0x0001,
-    SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG = 0x0002,
-    SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG      = 0x0004,
-    SDL_GL_CONTEXT_RESET_ISOLATION_FLAG    = 0x0008
-} SDL_GLcontextFlag;
+ /// \brief OpenGL configuration attributes
+pub const SDL_GLattr = c_uint;
+pub const SDL_GL_RED_SIZE: c_int = 0;
+pub const SDL_GL_GREEN_SIZE: c_int = 1;
+pub const SDL_GL_BLUE_SIZE: c_int = 2;
+pub const SDL_GL_ALPHA_SIZE: c_int = 3;
+pub const SDL_GL_BUFFER_SIZE: c_int = 4;
+pub const SDL_GL_DOUBLEBUFFER: c_int = 5;
+pub const SDL_GL_DEPTH_SIZE: c_int = 6;
+pub const SDL_GL_STENCIL_SIZE: c_int = 7;
+pub const SDL_GL_ACCUM_RED_SIZE: c_int = 8;
+pub const SDL_GL_ACCUM_GREEN_SIZE: c_int = 9;
+pub const SDL_GL_ACCUM_BLUE_SIZE: c_int = 10;
+pub const SDL_GL_ACCUM_ALPHA_SIZE: c_int = 11;
+pub const SDL_GL_STEREO: c_int = 12;
+pub const SDL_GL_MULTISAMPLEBUFFERS: c_int = 13;
+pub const SDL_GL_MULTISAMPLESAMPLES: c_int = 14;
+pub const SDL_GL_ACCELERATED_VISUAL: c_int = 15;
+pub const SDL_GL_RETAINED_BACKING: c_int = 16;
+pub const SDL_GL_CONTEXT_MAJOR_VERSION: c_int = 17;
+pub const SDL_GL_CONTEXT_MINOR_VERSION: c_int = 18;
+pub const SDL_GL_CONTEXT_EGL: c_int = 19;
+pub const SDL_GL_CONTEXT_FLAGS: c_int = 20;
+pub const SDL_GL_CONTEXT_PROFILE_MASK: c_int = 21;
+pub const SDL_GL_SHARE_WITH_CURRENT_CONTEXT: c_int = 22;
+pub const SDL_GL_FRAMEBUFFER_SRGB_CAPABLE: c_int = 23;
+pub const SDL_GL_CONTEXT_RELEASE_BEHAVIOR: c_int = 24;
+pub const SDL_GL_CONTEXT_RESET_NOTIFICATION: c_int = 25;
+pub const SDL_GL_CONTEXT_NO_ERROR: c_int = 26;
+pub const SDL_GL_FLOATBUFFERS: c_int = 27;
 
-typedef enum
-{
-    SDL_GL_CONTEXT_RELEASE_BEHAVIOR_NONE   = 0x0000,
-    SDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH  = 0x0001
-} SDL_GLcontextReleaseFlag;
 
-typedef enum
-{
-    SDL_GL_CONTEXT_RESET_NO_NOTIFICATION = 0x0000,
-    SDL_GL_CONTEXT_RESET_LOSE_CONTEXT    = 0x0001
-} SDL_GLContextResetNotification;
+pub const SDL_GLprofile = c_uint;
+pub const SDL_GL_CONTEXT_PROFILE_CORE: c_int = 1;
+pub const SDL_GL_CONTEXT_PROFILE_COMPATIBILITY: c_int = 2;
+pub const SDL_GL_CONTEXT_PROFILE_ES: c_int = 4;
+
+pub const SDL_GLcontextFlag = c_uint;
+pub const SDL_GL_CONTEXT_DEBUG_FLAG: c_int = 1;
+pub const SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG: c_int = 2;
+pub const SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG: c_int = 4;
+pub const SDL_GL_CONTEXT_RESET_ISOLATION_FLAG: c_int = 8;
+
+pub const SDL_GLcontextReleaseFlag = c_uint;
+pub const SDL_GL_CONTEXT_RELEASE_BEHAVIOR_NONE: c_int = 0;
+pub const SDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH: c_int = 1;
+
+pub const SDL_GLContextResetNotification = c_uint;
+pub const SDL_GL_CONTEXT_RESET_NO_NOTIFICATION: c_int = 0;
+pub const SDL_GL_CONTEXT_RESET_LOSE_CONTEXT: c_int = 1;
 
 /* Function prototypes */
 
-/**
- * Get the number of video drivers compiled into SDL.
- *
- * \returns a number >= 1 on success or a negative error code on failure; call
- *          SDL_GetError() for more information.
- *
- * \since This function is available since SDL 2.0.0.
- *
- * \sa SDL_GetVideoDriver
- */
-extern DECLSPEC int SDLCALL SDL_GetNumVideoDrivers(void);
+////**
+/// * Get the number of video drivers compiled into SDL.
+/// *
+/// * \returns a number >= 1 on success or a negative error code on failure; call
+/// *          SDL_GetError() for more information.
+/// *
+/// * \since This function is available since SDL 2.0.0.
+/// *
+/// * \sa SDL_GetVideoDriver
+/// */
+pub fn extern SDL_GetNumVideoDrivers() c_int;
 
-/**
- * Get the name of a built in video driver.
- *
- * The video drivers are presented in the order in which they are normally
- * checked during initialization.
- *
- * \param index the index of a video driver
- * \returns the name of the video driver with the given **index**.
- *
- * \since This function is available since SDL 2.0.0.
- *
- * \sa SDL_GetNumVideoDrivers
- */
-extern DECLSPEC const char *SDLCALL SDL_GetVideoDriver(int index);
+/// * checked during initialization.
+/// *
+/// * \param index the index of a video driver
+/// * \returns the name of the video driver with the given **index**.
+/// *
+/// * \since This function is available since SDL 2.0.0.
+/// *
+/// * SDL_GetNumVideoDrivers
+/// */
+pub fn extern SDL_GetVideoDriver(index: c_int) [*c]const u8;
 
-/**
- * Initialize the video subsystem, optionally specifying a video driver.
- *
- * This function initializes the video subsystem, setting up a connection to
- * the window manager, etc, and determines the available display modes and
- * pixel formats, but does not initialize a window or graphics mode.
- *
- * If you use this function and you haven't used the SDL_INIT_VIDEO flag with
- * either SDL_Init() or SDL_InitSubSystem(), you should call SDL_VideoQuit()
- * before calling SDL_Quit().
- *
- * It is safe to call this function multiple times. SDL_VideoInit() will call
- * SDL_VideoQuit() itself if the video subsystem has already been initialized.
- *
- * You can use SDL_GetNumVideoDrivers() and SDL_GetVideoDriver() to find a
- * specific `driver_name`.
- *
- * \param driver_name the name of a video driver to initialize, or NULL for
- *                    the default driver
- * \returns 0 on success or a negative error code on failure; call
- *          SDL_GetError() for more information.
- *
- * \since This function is available since SDL 2.0.0.
- *
- * \sa SDL_GetNumVideoDrivers
- * \sa SDL_GetVideoDriver
- * \sa SDL_InitSubSystem
- * \sa SDL_VideoQuit
- */
-extern DECLSPEC int SDLCALL SDL_VideoInit(const char *driver_name);
 
-/**
- * Shut down the video subsystem, if initialized with SDL_VideoInit().
- *
- * This function closes all windows, and restores the original video mode.
- *
- * \since This function is available since SDL 2.0.0.
- *
- * \sa SDL_VideoInit
- */
-extern DECLSPEC void SDLCALL SDL_VideoQuit(void);
+///* Initialize the video subsystem, optionally specifying a video driver.
+/// *
+/// * This function initializes the video subsystem, setting up a connection to
+/// * the window manager, etc, and determines the available display modes and
+/// * pixel formats, but does not initialize a window or graphics mode.
+/// *
+/// * If you use this function and you haven't used the SDL_INIT_VIDEO flag with
+/// * either SDL_Init() or SDL_InitSubSystem(), you should call SDL_VideoQuit()
+/// * before calling SDL_Quit().
+/// *
+/// * It is safe to call this function multiple times. SDL_VideoInit() will call
+/// * SDL_VideoQuit() itself if the video subsystem has already been initialized.
+/// *
+/// * You can use SDL_GetNumVideoDrivers() and SDL_GetVideoDriver() to find a
+/// * specific `driver_name`.
+/// *
+/// * \param driver_name the name of a video driver to initialize, or NULL for
+/// *                    the default driver
+/// * \returns 0 on success or a negative error code on failure; call
+/// *          SDL_GetError() for more information.
+/// *
+/// * \since This function is available since SDL 2.0.0.
+/// *
+/// * \sa SDL_GetNumVideoDrivers
+/// * \sa SDL_GetVideoDriver
+/// * \sa SDL_InitSubSystem
+/// * \sa SDL_VideoQuit
+/// */
+pub fn extern SDL_VideoInit(driver_name: [*c] const u8 ) c_int;
+
+/// * Shut down the video subsystem, if initialized with SDL_VideoInit().
+/// *
+/// * This function closes all windows, and restores the original video mode.
+/// *
+/// * \since This function is available since SDL 2.0.0.
+/// *
+/// * \sa SDL_VideoInit
+/// */
+pub extern fn SDL_VideoQuit() void;
 
 /**
  * Get the name of the currently initialized video driver.
