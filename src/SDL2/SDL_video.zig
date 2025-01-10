@@ -284,32 +284,28 @@ pub fn extern SDL_VideoInit(driver_name: [*c] const u8 ) c_int;
 pub extern fn SDL_VideoQuit() void;
 
 /**
- * Get the name of the currently initialized video driver.
- *
- * \returns the name of the current video driver or NULL if no driver has been
- *          initialized.
- *
- * \since This function is available since SDL 2.0.0.
- *
- * \sa SDL_GetNumVideoDrivers
- * \sa SDL_GetVideoDriver
- */
-extern DECLSPEC const char *SDLCALL SDL_GetCurrentVideoDriver(void);
+/// * Get the name of the currently initialized video driver.
+/// *
+/// * \returns the name of the current video driver or NULL if no driver has been
+/// *          initialized.
+/// *
+/// * \since This function is available since SDL 2.0.0.
+/// *
+/// * \sa SDL_GetNumVideoDrivers
+/// * \sa SDL_GetVideoDriver
+/// */
+pub extern fn SDL_GetCurrentVideoDriver() [*c]const u8;
+////**
+/// * Get the number of available video displays.
+/// * \returns a number >= 1 or a negative error code on failure; call
+/// *          SDL_GetError() for more information.
+/// * \since This function is available since SDL 2.0.0.
+/// * \sa SDL_GetDisplayBounds
+/// */
+pub extern fn SDL_GetNumVideoDisplays() c_int;
 
 /**
- * Get the number of available video displays.
- *
- * \returns a number >= 1 or a negative error code on failure; call
- *          SDL_GetError() for more information.
- *
- * \since This function is available since SDL 2.0.0.
- *
- * \sa SDL_GetDisplayBounds
- */
-extern DECLSPEC int SDLCALL SDL_GetNumVideoDisplays(void);
-
-/**
- * Get the name of a display in UTF-8 encoding.
+/// * Get the name of a display in UTF-8 encoding.
  *
  * \param displayIndex the index of display from which the name should be
  *                     queried
